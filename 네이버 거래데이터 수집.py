@@ -141,5 +141,5 @@ code = find_code(name)
 
 trade_total_df = trade(code)
 invest_total_df = invest(code)
-df = MA(trade_total_df,invest_total_df)
+df = MA(trade_total_df,invest_total_df) # save 옵션 추가 시 파일 저장
 grpah(df, name)
