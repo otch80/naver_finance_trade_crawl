@@ -9,9 +9,10 @@ import numpy as np
 import requests
 plt.rc('font', family='Malgun Gothic') 
 
-def grpah(df):
+def grpah(df,name):
     ## 시각화 ##
-    plt_df = df.set_index('날짜')[['종가','MA5','MA20','MA60','MA120']].plot(figsize=(24,6))
+    plt_df = df.set_index('날짜')[['종가','MA5','MA20','MA60','MA120']].plot(figsize=(24,6),title=name)
+    
     
     plt.xlabel("time",fontsize=15)
     plt.ylabel("price",fontsize=15)
@@ -135,9 +136,10 @@ def trade(code):
     return trade_total_df
 
 
-code = find_code("{원하는 거래 종목 명}")
+name = "" # 원하는 거래 종목 명
+code = find_code(name)
 
 trade_total_df = trade(code)
 invest_total_df = invest(code)
 df = MA(trade_total_df,invest_total_df)
-grpah(df)
+grpah(df, name)
