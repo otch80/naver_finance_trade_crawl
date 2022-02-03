@@ -135,7 +135,7 @@ def trade(code):
     return trade_total_df
 
 
-code = find_code("유바이오로직스")
+code = find_code("{원하는 거래 종목 명}")
 
 trade_total_df = trade(code)
 invest_total_df = invest(code)
